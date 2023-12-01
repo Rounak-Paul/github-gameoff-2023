@@ -23,13 +23,13 @@ public class SettingsManager : MonoBehaviour
 
     public void ChangeScene(int index)
     {
+        Time.timeScale = 1.0f;
         EventChangeScene?.Invoke(index);
     }
 
     public void RetryScene()
     {
-        Time.timeScale = 1f;
-        EventChangeScene?.Invoke(SceneManager.GetActiveScene().buildIndex);
+        ChangeScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ExitPrompt()
